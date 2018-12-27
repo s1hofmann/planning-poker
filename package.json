@@ -1,7 +1,7 @@
 {
   "name": "planning-poker",
   "version": "0.1.0",
-  "homepage": "https://s1hofmann.github.io/planning-poker",
+  "homepage": "https://s1hofmann.github.io/",
   "private": true,
   "dependencies": {
     "animate.css": "^3.7.0",

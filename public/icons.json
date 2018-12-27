@@ -1,13 +1,4 @@
 {
-  "short_name": "scrumPoker",
-  "name": "I'm a Planning Poker PWA!",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "dir": "ltr",
-  "lang": "en-US",
-  "orientation": "portrait",
-  "theme_color": "#000000",
-  "background_color": "#000000",
   "icons": [
     {
       "src": "windows10/Square71x71Logo.scale-400.png",
