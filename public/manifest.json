@@ -10,6 +10,9 @@
   ],
   "start_url": ".",
   "display": "standalone",
+  "dir": "ltr",
+  "lang": "en-US",
+  "orientation": "portrait",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }
