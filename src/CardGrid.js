@@ -15,13 +15,6 @@ export class CardGrid extends Component {
     };
   }
 
-  switchValueGenerator = value => {
-    this.setState({
-      valueGenerator: value
-    });
-    this.hideMenu();
-  };
-
   renderCards = () => {
     return this.state.valueGenerator.func().map(val => (
       <Card
@@ -29,9 +22,24 @@ export class CardGrid extends Component {
         // Should be ok, since we're dealing with static arrays?
         key={val}
         front={val}
-        onSelect={this.props.onSelectCard}
+        onSelect={this.onSelect}
       />
     ));
+  };
+
+  onSelect = event => {
+    if (this.state.menuOpen) {
+      this.hideMenu();
+    } else {
+      this.props.onSelectCard(event);
+    }
+  };
+
+  switchValueGenerator = value => {
+    this.setState({
+      valueGenerator: value
+    });
+    this.hideMenu();
   };
 
   hideMenu = () => {
