@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate.css": "^3.7.0",
+    "classnames": "^2.2.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

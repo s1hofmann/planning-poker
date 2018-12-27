@@ -1,0 +1,13 @@
+.drawer {
+    position: absolute;
+    height: 100%;
+    z-index: 10;
+    transform: translateX(-200%);
+    transition-duration: 0.6ms;
+    background: black;
+    padding: 0 3%;
+}
+
+.visible {
+    transform: translateX(0px);
+}

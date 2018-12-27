@@ -6,9 +6,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.menu {
+  margin-top: -4px;
+}
+
+.reveal {
+  font-size: 5em;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
