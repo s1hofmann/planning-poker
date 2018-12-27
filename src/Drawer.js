@@ -8,6 +8,7 @@ export class Drawer extends Component {
       <div className={classNames("drawer", { visible: this.props.visible })}>
         {this.props.items.map(child => (
           <DrawerItem
+            key={child.name}
             onClick={() => {
               this.props.onSelect(child);
             }}
