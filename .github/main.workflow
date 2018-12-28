@@ -13,7 +13,6 @@ action "Build && Deploy" {
   needs = ["Install"]
   args = "run deploy"
   secrets = [
-    "DEPLOY_TOKEN",
     "DEPLOY_USER",
     "GITHUB_TOKEN",
   ]
