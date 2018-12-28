@@ -5,8 +5,7 @@ workflow "Build and deploy to gh-pages" {
 
 action "Install" {
   uses = "actions/npm@e7aaefe"
-  runs = "npm ci"
-  secrets = ["GITHUB_TOKEN"]
+  args = "ci"
 }
 
 action "Build && Deploy" {
@@ -18,6 +17,6 @@ action "Build && Deploy" {
 action "Build " {
   uses = "actions/npm@e7aaefe"
   needs = ["Install"]
-  runs = "npm run deploy"
-  secrets = ["GITHUB_TOKEN"]
+  args = "run deploy"
+  secrets = ["DEPLOY_TOKEN", "DEPLOY_USER"]
 }
