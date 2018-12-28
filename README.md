@@ -1,44 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![foo](./public/chrome/chrome-installprocess-128-128.png) Planning Poker
 
-## Available Scripts
 
-In the project directory, you can run:
+After our last game of planning-poker at work, I realized that this little app I had installed on my phone bugged me in several ways:
 
-### `npm start`
+1. It shows adds
+2. Therefor, it causes network traffic
+3. It takes up almost 20 MB of storage
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I could live with ads, but what really struck me was the fact that this little app which does nothing but displaying static images requires 20 MB of storage. And why would I need a native app in the first place?
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+That was when I decided to build a (first prototype) of a planning-poker PWA and you can find the result right here.
 
-### `npm test`
+## What's in this repo?
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This repo contains all the code and images I created to provide a simple planning-poker PWA which provides basic planning-poker features:
 
-### `npm run build`
+- Different card decks (Standard, Fibonacci, T-Shirt sizes)
+- Tap / shake to reveal
+- That's it
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+It's built with React and hosted on GitHub pages, so it's available [here](https://s1hofmann.github.io/planning-poker/).
