@@ -12,5 +12,9 @@ action "Build && Deploy" {
   uses = "s1hofmann/npm@master"
   needs = ["Install"]
   args = "run deploy"
-  secrets = ["DEPLOY_TOKEN", "DEPLOY_USER"]
+  secrets = [
+    "DEPLOY_TOKEN",
+    "DEPLOY_USER",
+    "GITHUB_TOKEN",
+  ]
 }
