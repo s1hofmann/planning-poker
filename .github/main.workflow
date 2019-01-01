@@ -32,4 +32,7 @@ action "Test" {
   uses = "actions/npm@e7aaefe"
   needs = ["Install"]
   args = "test"
+  env = {
+    CI = "true"
+  }
 }
