@@ -1,9 +1,9 @@
 workflow "Build and deploy to gh-pages" {
   on = "push"
   resolves = [
-    "Build && Deploy",
     "Deploy if on master",
     "Test",
+    "Production build && Deploy",
   ]
 }
 
@@ -12,7 +12,7 @@ action "Install" {
   args = "ci"
 }
 
-action "Build && Deploy" {
+action "Production build && Deploy" {
   uses = "s1hofmann/npm@master"
   needs = ["Deploy if on master"]
   args = "run deploy"
