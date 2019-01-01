@@ -4,11 +4,10 @@
   "homepage": "https://s1hofmann.github.io/planning-poker",
   "private": true,
   "dependencies": {
-    "animate.css": "^3.7.0",
     "classnames": "^2.2.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.2",
     "uuid": "^3.3.2"
   },
   "scripts": {
