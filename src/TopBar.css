@@ -10,4 +10,6 @@
     font-size: 2em;
     font-weight: bold;
     padding: 2%;
+    z-index: 3;
+    border-bottom: 2px solid white;
 }
