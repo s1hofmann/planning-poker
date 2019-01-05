@@ -29,7 +29,7 @@ export class CardGrid extends Component {
 
   onSelect = event => {
     if (this.state.menuOpen) {
-      this.hideMenu();
+      this.hideOpenMenu();
     } else {
       this.props.onSelectCard(event);
     }
@@ -39,13 +39,15 @@ export class CardGrid extends Component {
     this.setState({
       valueGenerator: value
     });
-    this.hideMenu();
+    this.hideOpenMenu();
   };
 
-  hideMenu = () => {
-    this.setState({
-      menuOpen: false
-    });
+  hideOpenMenu = () => {
+    if (this.state.menuOpen) {
+      this.setState({
+        menuOpen: false
+      });
+    }
   };
 
   toggleMenu = () => {
@@ -57,7 +59,7 @@ export class CardGrid extends Component {
 
   render() {
     return (
-      <div className={classNames("cardGrid")}>
+      <div className={classNames("cardGrid")} onClick={this.hideOpenMenu}>
         <TopBar
           left={
             <span
