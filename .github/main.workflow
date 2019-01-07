@@ -13,13 +13,13 @@ action "Install" {
 }
 
 action "Production build && Deploy" {
-  uses = "s1hofmann/npm@master"
+  uses = "docker://node:10"
   needs = ["Deploy if on master"]
-  args = "run deploy"
   secrets = [
     "DEPLOY_USER",
     "GITHUB_TOKEN",
   ]
+  runs = "npm run deploy"
 }
 
 action "Deploy if on master" {
