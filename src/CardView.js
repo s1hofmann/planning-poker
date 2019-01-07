@@ -7,7 +7,7 @@ import "./CardView.css";
 export class CardView extends Component {
   render() {
     return (
-      <div>
+      <div className={classNames("cardView")}>
         <TopBar
           left={
             <div

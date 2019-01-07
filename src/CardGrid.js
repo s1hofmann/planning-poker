@@ -57,7 +57,7 @@ export class CardGrid extends Component {
 
   render() {
     return (
-      <div className={classNames("cardGrid")}>
+      <div className={classNames("cardGridView")}>
         <TopBar
           left={
             <span
@@ -78,7 +78,9 @@ export class CardGrid extends Component {
           items={[fibonacci, standard, shirts]}
           onSelect={this.switchValueGenerator}
         />
-        {this.renderCards()}
+        <div className={classNames("cardGrid")} onClick={this.hideOpenMenu}>
+          {this.renderCards()}
+        </div>
       </div>
     );
   }
