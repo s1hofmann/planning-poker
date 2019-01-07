@@ -23,6 +23,6 @@ export class Drawer extends Component {
 
 class DrawerItem extends Component {
   render() {
-    return <h1 onClick={this.props.onClick}>{this.props.children}</h1>;
+    return <h1 className={classNames("menuItem")} onClick={this.props.onClick}>{this.props.children}</h1>;
   }
 }

@@ -3,8 +3,7 @@
     top: 60px;
     left: calc(10vw/2);
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: auto auto auto auto;
     width: 90vw;
     height: calc(100vh - 70px);
     margin: auto;

@@ -8,18 +8,18 @@ workflow "Build and deploy to gh-pages" {
 }
 
 action "Install" {
-  uses = "actions/npm@e7aaefe"
-  args = "ci"
+  uses = "docker://node:10"
+  args = "npm ci"
 }
 
 action "Production build && Deploy" {
-  uses = "s1hofmann/npm@master"
+  uses = "docker://node:10"
   needs = ["Deploy if on master"]
-  args = "run deploy"
   secrets = [
     "DEPLOY_USER",
     "GITHUB_TOKEN",
   ]
+  runs = "npm run deploy"
 }
 
 action "Deploy if on master" {
@@ -29,9 +29,9 @@ action "Deploy if on master" {
 }
 
 action "Test" {
-  uses = "actions/npm@e7aaefe"
+  uses = "docker://node:10"
   needs = ["Install"]
-  args = "test"
+  args = "npm test"
   env = {
     CI = "true"
   }

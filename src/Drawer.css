@@ -13,6 +13,10 @@
   border-bottom: 2px solid;
 }
 
+.menuItem {
+    border-bottom: 2px solid;
+}
+
 .visible {
   transform: translateX(0px);
 }
