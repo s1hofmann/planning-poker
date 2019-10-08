@@ -1,13 +1,14 @@
 {
   "name": "planning-poker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://s1hofmann.github.io/planning-poker",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "device-motion": "^1.0.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "^2.1.2",
+    "react-scripts": "^3.2.0",
     "uuid": "^3.3.2"
   },
   "scripts": {
