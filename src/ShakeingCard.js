@@ -1,5 +1,5 @@
 import { Card } from "./Card";
-import { Seismograph } from "./Seismograph";
+import { Seismograph } from "device-motion";
 
 export class ShakeingCard extends Card {
   constructor(props) {
