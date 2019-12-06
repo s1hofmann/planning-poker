@@ -16,6 +16,9 @@ export class Drawer extends Component {
             {child.name}
           </DrawerItem>
         ))}
+        <Settings
+            onClick={this.props.onOpenSettings}>
+        </Settings>
       </div>
     );
   }
@@ -24,5 +27,15 @@ export class Drawer extends Component {
 class DrawerItem extends Component {
   render() {
     return <h1 className={classNames("menuItem")} onClick={this.props.onClick}>{this.props.children}</h1>;
+  }
+}
+
+class Settings extends Component{
+  render() {
+    return (
+      <h1 onClick={this.props.onClick}>
+        &#9881;
+      </h1>
+    );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CardGrid } from "./CardGrid";
 import { CardView } from "./CardView";
+import { Settings } from "./Settings";
 import classNames from "classnames";
 import "./App.css";
 
@@ -9,7 +10,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      currentSelection: null
+      currentSelection: null,
+      showSettings: false
     };
   }
 
@@ -25,6 +27,18 @@ class App extends Component {
     });
   };
 
+  openSettings = () => {
+    this.setState({
+      showSettings: true,
+    });
+  };
+
+  closeSettings = () => {
+    this.setState({
+      showSettings: false
+    });
+  };
+
   render() {
     if (this.state.currentSelection) {
       return (
@@ -34,11 +48,20 @@ class App extends Component {
           </CardView>
         </div>
       );
+    }else if(this.state.showSettings){
+      return (
+        <div className={classNames("App")}>
+          <Settings
+              onCloseSettings={this.closeSettings}
+          />
+        </div>
+      );
     }
     return (
       <div className={classNames("App")}>
         <CardGrid
           onSelectCard={this.selectCard}
+          onOpenSettings={this.openSettings}
         />
       </div>
     );

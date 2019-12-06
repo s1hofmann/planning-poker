@@ -79,6 +79,7 @@ export class CardGrid extends Component {
           visible={this.state.menuOpen}
           items={[fibonacci, standard, shirts]}
           onSelect={this.switchValueGenerator}
+          onOpenSettings={this.props.onOpenSettings}
         />
         <div className={classNames("cardGrid")} onClick={this.hideOpenMenu}>
           {this.renderCards()}
