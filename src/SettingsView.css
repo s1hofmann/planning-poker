@@ -8,12 +8,9 @@
     left: calc(10vw/2);
     display: inline-list-item;
     font-weight: bold;
+    font-size: 2em;
     grid-template-columns: auto auto auto auto;
     width: 90vw;
     height: calc(100vh - 70px);
     margin: auto;
-}
-
-input {
-    font-size: 1em;
 }

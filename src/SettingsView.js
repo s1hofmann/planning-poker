@@ -74,10 +74,11 @@ class Setting extends Component {
         return (
             <tr>
                 <td>
-                    <h3>{this.props.setting.name}:</h3>
+                    <p>{this.props.setting.name}:</p>
                 </td>
                 <td>
-                    <input onChange={this.props.onChangeSetting}
+                    <input type="color"
+                           onChange={this.props.onChangeSetting}
                            defaultValue={this.propValue()}/>
                 </td>
             </tr>
