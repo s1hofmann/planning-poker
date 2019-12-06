@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+#intellij
+.idea
+*.iml
+
 # testing
 /coverage
 
