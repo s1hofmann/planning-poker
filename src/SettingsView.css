@@ -1,0 +1,19 @@
+.title {
+    display: flex;
+}
+
+.settings {
+    position: absolute;
+    top: 60px;
+    left: calc(10vw/2);
+    display: inline-list-item;
+    font-weight: bold;
+    grid-template-columns: auto auto auto auto;
+    width: 90vw;
+    height: calc(100vh - 70px);
+    margin: auto;
+}
+
+input {
+    font-size: 1em;
+}

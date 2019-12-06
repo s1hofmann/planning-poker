@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { CardGrid } from "./CardGrid";
 import { CardView } from "./CardView";
-import { Settings } from "./Settings";
+import { SettingsView } from "./SettingsView";
 import classNames from "classnames";
 import "./App.css";
+import {settings} from "./Settings";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends Component {
 
     this.state = {
       currentSelection: null,
-      showSettings: false
+      showSettings: false,
+      settings: settings
     };
   }
 
@@ -39,6 +41,12 @@ class App extends Component {
     });
   };
 
+  changeSetting = newSettings => {
+    this.setState({
+      settings: newSettings
+    });
+  };
+
   render() {
     if (this.state.currentSelection) {
       return (
@@ -51,7 +59,9 @@ class App extends Component {
     }else if(this.state.showSettings){
       return (
         <div className={classNames("App")}>
-          <Settings
+          <SettingsView
+              settings={this.state.settings}
+              onChangeSetting={this.changeSetting}
               onCloseSettings={this.closeSettings}
           />
         </div>
