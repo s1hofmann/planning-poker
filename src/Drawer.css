@@ -5,6 +5,8 @@
   left: 0;
   z-index: 10;
   transform: translateX(-100%);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   background: black;
   padding: 0 3% 0 3%;
 }
@@ -19,4 +21,6 @@
 
 .visible {
   transform: translateX(0px);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
