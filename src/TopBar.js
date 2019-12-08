@@ -1,13 +1,24 @@
 import React, { Component } from "react";
-import classNames from "classnames";
-import "./TopBar.css";
+import styled from "styled-components";
+
+const TopBarDiv = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 100%;
+  height: 50px;
+  background: black;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 0 0 2% 1%;
+  z-index: 3;
+  border-bottom: 2px solid white;
+`;
 
 export class TopBar extends Component {
   render() {
-    return (
-      <div className={classNames("top-bar")}>
-        {this.props.children}
-      </div>
-    );
+    return <TopBarDiv>{this.props.children}</TopBarDiv>;
   }
 }
