@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const TopBarDiv = styled.div`
@@ -17,8 +17,4 @@ const TopBarDiv = styled.div`
   border-bottom: 2px solid white;
 `;
 
-export class TopBar extends Component {
-  render() {
-    return <TopBarDiv>{this.props.children}</TopBarDiv>;
-  }
-}
+export const TopBar = props => <TopBarDiv>{props.children}</TopBarDiv>;
