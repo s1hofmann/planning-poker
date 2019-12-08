@@ -41,7 +41,8 @@
   transform: rotateY(180deg);
 }
 
-h1.content-front, h1.content-back {
-    text-shadow: 1px 1px lightgray;
-    font-size: 2em;
+h1.content-front,
+h1.content-back {
+  text-shadow: 1px 1px lightgray;
+  font-size: 2em;
 }

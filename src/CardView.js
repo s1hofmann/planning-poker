@@ -8,16 +8,14 @@ export class CardView extends Component {
   render() {
     return (
       <div className={classNames("cardView")}>
-        <TopBar
-          left={
+        <TopBar>
             <div
               className={classNames("text-left")}
               onClick={this.props.onClose}
             >
               {"< Back"}
             </div>
-          }
-        />
+        </TopBar>
         <div className={classNames("card-container")}>
           <ShakeingCard
             className={classNames("reveal")}
