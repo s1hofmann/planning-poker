@@ -60,21 +60,19 @@ export class CardGrid extends Component {
   render() {
     return (
       <div className={classNames("cardGridView")} onClick={this.hideOpenMenu}>
-        <TopBar
-          left={
-            <span
-              className={classNames("text-left", "menu")}
-              onClick={this.toggleMenu}
-            >
-              &#9776;
-            </span>
-          }
-          center={
-            <span className={classNames("text-centered")}>
-              {this.state.valueGenerator.name}
-            </span>
-          }
-        />
+        <TopBar>
+          <div onClick={this.toggleMenu} className="menu-wrapper">
+            <div
+              className={classNames(
+                "hamburger-menu",
+                this.state.menuOpen ? "animate" : ""
+              )}
+            ></div>
+          </div>
+          <span className={classNames("text-centered")}>
+            {this.state.valueGenerator.name}
+          </span>
+        </TopBar>
         <Drawer
           visible={this.state.menuOpen}
           items={[fibonacci, standard, shirts]}
