@@ -1,10 +1,11 @@
 {
   "name": "planning-poker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://s1hofmann.github.io/planning-poker",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "device-motion": "^1.0.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.3.0",
@@ -16,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://$DEPLOY_USER:$GITHUB_TOKEN@github.com/s1hofmann/planning-poker.git -u \"Simon Hofmann <mail@simon-hofmann.org>\""
+    "deploy": "gh-pages -d build -r https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
   },
   "eslintConfig": {
     "extends": "react-app"
