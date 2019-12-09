@@ -27,6 +27,7 @@ const CardContainer = styled.div`
 
 const BackButton = styled.div`
   text-align: left;
+  padding-left: 10px;
   cursor: pointer;
 `;
 
@@ -35,7 +36,7 @@ export class CardView extends Component {
     return (
       <CardViewDiv>
         <TopBar id="top-menu">
-          <BackButton id="backButton" onClick={this.props.onClose}>{"< Back"}</BackButton>
+          <BackButton id="backButton" onClick={this.props.onClose}>{"<"}</BackButton>
         </TopBar>
         <CardContainer id="cardContainer">
           <ShakeingCard
