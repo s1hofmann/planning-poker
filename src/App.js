@@ -1,15 +1,36 @@
 import React, { Component } from "react";
 import { CardGrid } from "./CardGrid";
 import { CardView } from "./CardView";
-import classNames from "classnames";
-import "./App.css";
+import { BlackAndWhite } from "./Themes";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: ${props => props.theme.color};
+  background: ${props => props.theme.background};
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+`;
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      currentSelection: null
+      currentSelection: null,
+      currentTheme: BlackAndWhite
     };
   }
 
@@ -28,19 +49,19 @@ class App extends Component {
   render() {
     if (this.state.currentSelection) {
       return (
-        <div className={classNames("App")}>
+        <ThemeProvider theme={this.state.currentTheme}>
+          <GlobalStyle />
           <CardView onClose={this.closeCardView}>
             {this.state.currentSelection}
           </CardView>
-        </div>
+        </ThemeProvider>
       );
     }
     return (
-      <div className={classNames("App")}>
-        <CardGrid
-          onSelectCard={this.selectCard}
-        />
-      </div>
+      <ThemeProvider theme={this.state.currentTheme}>
+        <GlobalStyle />
+        <CardGrid onSelectCard={this.selectCard} />
+      </ThemeProvider>
     );
   }
 }
