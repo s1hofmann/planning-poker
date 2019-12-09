@@ -81,7 +81,6 @@ class App extends Component {
             show={this.state.showModal}
             onClose={this.closeSettingsModal}
             onChangeSettings={this.updateTheme}
-            onCloseSettings={this.closeSettingsModal}
           />
           <CardView
             onClose={this.closeCardView}
@@ -99,7 +98,6 @@ class App extends Component {
           show={this.state.showModal}
           onClose={this.closeSettingsModal}
           onChangeSettings={this.updateTheme}
-          onCloseSettings={this.closeSettingsModal}
         />
         <CardGrid
           onSelectCard={this.selectCard}

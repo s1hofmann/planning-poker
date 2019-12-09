@@ -72,7 +72,7 @@ const renderThemePreview = updateThemeFunc => {
 export const SettingsModal = props => {
   return (
     <ModalDiv id="modalContainer" show={props.show}>
-      <CloseButton onClick={props.onCloseSettings}>X</CloseButton>
+      <CloseButton onClick={props.onClose}>X</CloseButton>
       <ModalContentDiv id="modalContent">
         {renderThemePreview(props.onChangeSettings)}
       </ModalContentDiv>
