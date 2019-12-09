@@ -12,13 +12,13 @@ const CardBody = styled.div`
   border-radius: 15px;
   border-style: solid;
   border-color: ${props => props.theme.color};
-  border-width: 5px;
+  border-width: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   transform-style: preserve-3d;
   perspective: 500px;
-  transform: ${props => props.flipped ? `rotateY(180deg)` : `rotateY(0deg)`};
+  transform: ${props => (props.flipped ? `rotateY(180deg)` : `rotateY(0deg)`)};
   transition: 0.6s;
 `;
 
@@ -29,8 +29,10 @@ const ContentDiv = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
-  h1.text-shadow: 1px 1px lightgray;
-  h1.font-size: 2em;
+  h1 {
+    text-shadow: 1px 1px lightgray;
+    font-size: 5em;
+  }
 `;
 const FrontContent = styled(ContentDiv)`
   transform: rotateY(0deg);
@@ -69,7 +71,10 @@ export class Card extends Component {
 
   render() {
     return (
-      <CardBody flipped={this.state.flipped} onClick={this.props.onSelect || this.flip}>
+      <CardBody
+        flipped={this.state.flipped}
+        onClick={this.props.onSelect || this.flip}
+      >
         <Front>
           <CardText>{this.props.front || "Flip it!"}</CardText>
         </Front>
