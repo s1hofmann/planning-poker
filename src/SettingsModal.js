@@ -60,9 +60,9 @@ const CloseButton = styled.div`
 `;
 
 const renderThemePreview = updateThemeFunc => {
-  return themes.map(theme => {
+  return themes.map((theme, index) => {
     return (
-      <PreviewDiv theme={theme} onClick={() => updateThemeFunc(theme)}>
+      <PreviewDiv key={index} theme={theme} onClick={() => updateThemeFunc(theme)}>
         Theme preview
       </PreviewDiv>
     );

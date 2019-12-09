@@ -4,6 +4,7 @@ import { CardView } from "./CardView";
 import { SettingsModal } from "./SettingsModal";
 import { BlackAndWhite } from "./Themes";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { saveThemeData, loadThemeData } from "./Persistence";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -34,6 +35,15 @@ class App extends Component {
       showModal: false,
       currentTheme: BlackAndWhite
     };
+  }
+
+  componentDidMount() {
+    loadThemeData().then(theme => {
+      this.setState({
+        ...this.state,
+        currentTheme: theme || BlackAndWhite
+      });
+    });
   }
 
   selectCard = event => {
@@ -70,6 +80,7 @@ class App extends Component {
       ...this.state,
       currentTheme: theme
     });
+    saveThemeData(theme);
   };
 
   render() {
