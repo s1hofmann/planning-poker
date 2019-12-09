@@ -5,12 +5,11 @@
   left: 0;
   z-index: 10;
   transform: translateX(-100%);
-  background: black;
   padding: 0 3% 0 3%;
 }
 
 .menuItem {
-    border-bottom: 2px solid;
+  border-bottom: 2px solid;
 }
 
 .visible {

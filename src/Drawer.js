@@ -5,7 +5,8 @@ import "./Drawer.css";
 export class Drawer extends Component {
   render() {
     return (
-      <div className={classNames("drawer", { visible: this.props.visible })}>
+      <div style={this.props.style}
+           className={classNames("drawer", { visible: this.props.visible })}>
         {this.props.items.map(child => (
           <DrawerItem
             key={child.name}

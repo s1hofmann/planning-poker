@@ -13,7 +13,11 @@ class App extends Component {
     this.state = {
       currentSelection: null,
       showSettings: false,
-      settings: settings
+      settings: settings,
+      style: {
+        backgroundColor: settings.backgroundColor.default,
+        color: settings.foregroundColor.default
+      }
     };
   }
 
@@ -45,12 +49,33 @@ class App extends Component {
     this.setState({
       settings: newSettings
     });
+    this.changeStyle(newSettings);
   };
+
+  changeStyle(newSettings) {
+    let style = {...this.state.style};
+
+    style.backgroundColor = this.getBackgroundColor(newSettings);
+    style.color = this.getForegroundColor(newSettings);
+    this.setState({
+      style: style
+    })
+  }
+
+  getBackgroundColor(newSettings) {
+    return newSettings.backgroundColor.value ?
+        newSettings.backgroundColor.value : this.state.settings.backgroundColor.default;
+  }
+
+  getForegroundColor(newSettings) {
+    return newSettings.foregroundColor.value ?
+        newSettings.foregroundColor.value : this.state.settings.foregroundColor.default;
+  }
 
   render() {
     if (this.state.currentSelection) {
       return (
-        <div className={classNames("App")}>
+        <div style={this.state.style} className={classNames("App")}>
           <CardView onClose={this.closeCardView}>
             {this.state.currentSelection}
           </CardView>
@@ -58,7 +83,7 @@ class App extends Component {
       );
     }else if(this.state.showSettings){
       return (
-        <div className={classNames("App")}>
+        <div style={this.state.style} className={classNames("App")}>
           <SettingsView
               settings={this.state.settings}
               onChangeSetting={this.changeSetting}
@@ -68,10 +93,11 @@ class App extends Component {
       );
     }
     return (
-      <div className={classNames("App")}>
+      <div style={this.state.style} className={classNames("App")}>
         <CardGrid
           onSelectCard={this.selectCard}
           onOpenSettings={this.openSettings}
+          style={this.state.style}
         />
       </div>
     );

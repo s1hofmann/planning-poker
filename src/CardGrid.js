@@ -80,6 +80,7 @@ export class CardGrid extends Component {
           items={[fibonacci, standard, shirts]}
           onSelect={this.switchValueGenerator}
           onOpenSettings={this.props.onOpenSettings}
+          style={this.props.style}
         />
         <div className={classNames("cardGrid")} onClick={this.hideOpenMenu}>
           {this.renderCards()}
