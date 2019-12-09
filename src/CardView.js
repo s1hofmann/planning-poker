@@ -4,6 +4,11 @@ import styled from "styled-components";
 import { ShakeingCard } from "./ShakeingCard";
 import { TopBar } from "./TopBar";
 
+const CardViewDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const CardContainer = styled.div`
   position: fixed;
   display: flex;
@@ -11,6 +16,12 @@ const CardContainer = styled.div`
   justify-content: center;
   top: 60px;
   width: 100vw;
+  @media (min-width: 768px) {
+    width: calc(100vw / 2);
+  }
+  @media (min-width: >1024px) {
+    width: calc(100vw / 3);
+  }
   height: calc(100vh - 70px);
 `;
 
@@ -22,18 +33,19 @@ const BackButton = styled.div`
 export class CardView extends Component {
   render() {
     return (
-      <div>
-        <TopBar>
-          <BackButton onClick={this.props.onClose}>{"< Back"}</BackButton>
+      <CardViewDiv>
+        <TopBar id="top-menu">
+          <BackButton id="backButton" onClick={this.props.onClose}>{"< Back"}</BackButton>
         </TopBar>
-        <CardContainer>
+        <CardContainer id="cardContainer">
           <ShakeingCard
+            id="shakingCard"
             className={classNames("reveal")}
             isFlippable={true}
             back={this.props.children}
           />
         </CardContainer>
-      </div>
+      </CardViewDiv>
     );
   }
 }
