@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CardGrid } from "./CardGrid";
 import { CardView } from "./CardView";
+import { SettingsModal } from "./SettingsModal";
 import { BlackAndWhite } from "./Themes";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -30,19 +31,44 @@ class App extends Component {
 
     this.state = {
       currentSelection: null,
+      showModal: false,
       currentTheme: BlackAndWhite
     };
   }
 
   selectCard = event => {
     this.setState({
+      ...this.state,
       currentSelection: event.target.innerText
     });
   };
 
   closeCardView = () => {
     this.setState({
+      ...this.state,
       currentSelection: null
+    });
+  };
+
+  closeSettingsModal = () => {
+    this.setState({
+      ...this.state,
+      showModal: false
+    });
+  };
+
+  toggleSettingsModal = () => {
+    const isShown = this.state.showModal;
+    this.setState({
+      ...this.state,
+      showModal: !isShown
+    });
+  };
+
+  updateTheme = theme => {
+    this.setState({
+      ...this.state,
+      currentTheme: theme
     });
   };
 
@@ -51,7 +77,16 @@ class App extends Component {
       return (
         <ThemeProvider theme={this.state.currentTheme}>
           <GlobalStyle />
-          <CardView onClose={this.closeCardView}>
+          <SettingsModal
+            show={this.state.showModal}
+            onClose={this.closeSettingsModal}
+            onChangeSettings={this.updateTheme}
+            onCloseSettings={this.closeSettingsModal}
+          />
+          <CardView
+            onClose={this.closeCardView}
+            onSettingsButton={this.toggleSettingsModal}
+          >
             {this.state.currentSelection}
           </CardView>
         </ThemeProvider>
@@ -60,7 +95,16 @@ class App extends Component {
     return (
       <ThemeProvider theme={this.state.currentTheme}>
         <GlobalStyle />
-        <CardGrid onSelectCard={this.selectCard} />
+        <SettingsModal
+          show={this.state.showModal}
+          onClose={this.closeSettingsModal}
+          onChangeSettings={this.updateTheme}
+          onCloseSettings={this.closeSettingsModal}
+        />
+        <CardGrid
+          onSelectCard={this.selectCard}
+          onSettingsButton={this.toggleSettingsModal}
+        />
       </ThemeProvider>
     );
   }

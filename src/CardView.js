@@ -3,6 +3,7 @@ import classNames from "classnames";
 import styled from "styled-components";
 import { ShakeingCard } from "./ShakeingCard";
 import { TopBar } from "./TopBar";
+import { SettingsButton } from "./SettingsButton";
 
 const CardViewDiv = styled.div`
   display: flex;
@@ -37,6 +38,8 @@ export class CardView extends Component {
       <CardViewDiv>
         <TopBar id="top-menu">
           <BackButton id="backButton" onClick={this.props.onClose}>{"<"}</BackButton>
+          <div></div>
+          <SettingsButton onClick={this.props.onSettingsButton} />
         </TopBar>
         <CardContainer id="cardContainer">
           <ShakeingCard

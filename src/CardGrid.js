@@ -5,6 +5,7 @@ import { TopBar } from "./TopBar";
 import { Drawer } from "./Drawer";
 import { standard, fibonacci, shirts } from "./Values";
 import { HamburgerMenu } from "./HamburgerMenu";
+import { SettingsButton } from "./SettingsButton";
 
 const CardGridDiv = styled.div`
   position: absolute;
@@ -80,6 +81,7 @@ export class CardGrid extends Component {
             onClick={this.toggleMenu}
           ></HamburgerMenu>
           <CenteredText>{this.state.valueGenerator.name}</CenteredText>
+          <SettingsButton onClick={this.props.onSettingsButton} />
         </TopBar>
         <Drawer
           visible={this.state.menuOpen}
