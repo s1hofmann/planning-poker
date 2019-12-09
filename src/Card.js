@@ -29,10 +29,6 @@ const ContentDiv = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
-  h1 {
-    text-shadow: 1px 1px lightgray;
-    font-size: 5em;
-  }
 `;
 const FrontContent = styled(ContentDiv)`
   transform: rotateY(0deg);
