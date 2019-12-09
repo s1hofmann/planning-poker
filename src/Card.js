@@ -1,6 +1,48 @@
 import React, { Component } from "react";
-import classNames from "classnames";
-import "./Card.css";
+import styled from "styled-components";
+
+const CardBody = styled.div`
+  position: relative;
+  text-align: center;
+  color: ${props => props.theme.color};
+  background: ${props => props.theme.background};
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: ${props => props.theme.color};
+  border-width: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  transform: ${props => (props.flipped ? `rotateY(180deg)` : `rotateY(0deg)`)};
+  transition: 0.6s;
+`;
+
+const ContentDiv = styled.div`
+  position: absolute;
+  text-align: center;
+  backface-visibility: hidden;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+`;
+const FrontContent = styled(ContentDiv)`
+  transform: rotateY(0deg);
+`;
+const BackContent = styled(ContentDiv)`
+  transform: rotateY(180deg);
+`;
+const CardText = styled.h1`
+  text-shadow: 1px 1px lightgray;
+  font-size: 2em;
+`;
+
+const Front = props => <FrontContent>{props.children}</FrontContent>;
+const Back = props => <BackContent>{props.children}</BackContent>;
 
 export class Card extends Component {
   constructor(props) {
@@ -25,30 +67,17 @@ export class Card extends Component {
 
   render() {
     return (
-      <div
-        className={classNames(
-          "card-body",
-          { flipped: this.state.flipped },
-          this.props.className
-        )}
+      <CardBody
+        flipped={this.state.flipped}
         onClick={this.props.onSelect || this.flip}
       >
         <Front>
-          <h1 className={classNames("content-front")}>
-            {this.props.front || "Flip it!"}
-          </h1>
+          <CardText>{this.props.front || "Flip it!"}</CardText>
         </Front>
         <Back>
-          <h1 className={classNames("content-back")}>{this.props.back}</h1>
+          <CardText>{this.props.back}</CardText>
         </Back>
-      </div>
+      </CardBody>
     );
   }
 }
-
-const Front = props => (
-  <div className={classNames("card-front")}>{props.children}</div>
-);
-const Back = props => (
-  <div className={classNames("card-back")}>{props.children}</div>
-);

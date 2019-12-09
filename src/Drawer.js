@@ -1,28 +1,47 @@
-import React, { Component } from "react";
-import classNames from "classnames";
-import "./Drawer.css";
+import React from "react";
+import styled from "styled-components";
 
-export class Drawer extends Component {
-  render() {
-    return (
-      <div className={classNames("drawer", { visible: this.props.visible })}>
-        {this.props.items.map(child => (
-          <DrawerItem
-            key={child.name}
-            onClick={() => {
-              this.props.onSelect(child);
-            }}
-          >
-            {child.name}
-          </DrawerItem>
-        ))}
-      </div>
-    );
-  }
-}
+const DrawerItemDiv = styled.h1`
+  border-bottom: 2px solid;
+  cursor: pointer;
+`;
 
-class DrawerItem extends Component {
-  render() {
-    return <h1 className={classNames("menuItem")} onClick={this.props.onClick}>{this.props.children}</h1>;
+const DrawerItem = props => (
+  <DrawerItemDiv onClick={props.onClick}>{props.children}</DrawerItemDiv>
+);
+
+const DrawerDiv = styled.div`
+  position: absolute;
+  height: 100%;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.color};
+  padding: 0 3% 0 3%;
+  transform: ${props =>
+    props.visible ? `translateX(0px)` : `translateX(-100%)`};
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  h1 {
+    border-bottom: 2px solid;
   }
-}
+`;
+
+export const Drawer = props => {
+  return (
+    <DrawerDiv visible={props.visible}>
+      {props.items.map(child => (
+        <DrawerItem
+          key={child.name}
+          onClick={() => {
+            props.onSelect(child);
+          }}
+        >
+          {child.name}
+        </DrawerItem>
+      ))}
+    </DrawerDiv>
+  );
+};

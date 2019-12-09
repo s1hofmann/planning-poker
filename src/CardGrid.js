@@ -1,10 +1,26 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import styled from "styled-components";
 import { Card } from "./Card";
 import { TopBar } from "./TopBar";
 import { Drawer } from "./Drawer";
 import { standard, fibonacci, shirts } from "./Values";
-import "./CardGrid.css";
+import { HamburgerMenu } from "./HamburgerMenu";
+import { SettingsButton } from "./SettingsButton";
+
+const CardGridDiv = styled.div`
+  position: absolute;
+  top: 60px;
+  left: calc(10vw / 2);
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 90vw;
+  height: calc(100vh - 70px);
+  margin: auto;
+`;
+
+const CenteredText = styled.span`
+  text-align: center;
+`;
 
 export class CardGrid extends Component {
   constructor(props) {
@@ -18,7 +34,6 @@ export class CardGrid extends Component {
   renderCards = () => {
     return this.state.valueGenerator.func().map(val => (
       <Card
-        className={classNames("overview")}
         // Should be ok, since we're dealing with static arrays?
         key={val}
         front={val}
@@ -59,28 +74,23 @@ export class CardGrid extends Component {
 
   render() {
     return (
-      <div className={classNames("cardGridView")} onClick={this.hideOpenMenu}>
+      <div onClick={this.hideOpenMenu}>
         <TopBar>
-          <div onClick={this.toggleMenu} className="menu-wrapper">
-            <div
-              className={classNames(
-                "hamburger-menu",
-                this.state.menuOpen ? "animate" : ""
-              )}
-            ></div>
-          </div>
-          <span className={classNames("text-centered")}>
-            {this.state.valueGenerator.name}
-          </span>
+          <HamburgerMenu
+            open={this.state.menuOpen}
+            onClick={this.toggleMenu}
+          ></HamburgerMenu>
+          <CenteredText>{this.state.valueGenerator.name}</CenteredText>
+          <SettingsButton onClick={this.props.onSettingsButton} />
         </TopBar>
         <Drawer
           visible={this.state.menuOpen}
           items={[fibonacci, standard, shirts]}
           onSelect={this.switchValueGenerator}
         />
-        <div className={classNames("cardGrid")} onClick={this.hideOpenMenu}>
+        <CardGridDiv onClick={this.hideOpenMenu}>
           {this.renderCards()}
-        </div>
+        </CardGridDiv>
       </div>
     );
   }
