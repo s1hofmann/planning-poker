@@ -5,6 +5,7 @@ import { SettingsView } from "./SettingsView";
 import classNames from "classnames";
 import "./App.css";
 import {settings} from "./Settings";
+import {get, set} from "idb-keyval";
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,15 @@ class App extends Component {
       }
     };
   }
+
+  async componentDidMount() {
+    const loadedSettings = await get('settings');
+    this.setState({
+      settings: loadedSettings
+    });
+    this.changeSetting(loadedSettings);
+  }
+
 
   selectCard = event => {
     this.setState({
@@ -50,6 +60,7 @@ class App extends Component {
       settings: newSettings
     });
     this.changeStyle(newSettings);
+    set('settings', newSettings).then(() => console.log("settings stored"));
   };
 
   changeStyle(newSettings) {

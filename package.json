@@ -6,6 +6,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "device-motion": "^1.0.4",
+    "idb-keyval": "^3.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "^3.2.0",
