@@ -16,7 +16,8 @@ const DrawerDiv = styled.div`
   top: 50px;
   left: 0;
   z-index: 10;
-  background: black;
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.color};
   padding: 0 3% 0 3%;
   transform: ${props =>
     props.visible ? `translateX(0px)` : `translateX(-100%)`};

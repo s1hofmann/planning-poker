@@ -9,12 +9,13 @@ const TopBarDiv = styled.div`
   grid-template-columns: auto auto auto;
   width: 100%;
   height: 50px;
-  background: black;
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.color};
   font-size: 2em;
   font-weight: bold;
   padding: 0 0 2% 1%;
   z-index: 3;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid ${props => props.theme.color};
 `;
 
 export const TopBar = props => <TopBarDiv>{props.children}</TopBarDiv>;

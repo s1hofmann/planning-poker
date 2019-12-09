@@ -4,13 +4,14 @@ import styled from "styled-components";
 const CardBody = styled.div`
   position: relative;
   text-align: center;
-  color: white;
+  color: ${props => props.theme.color};
+  background: ${props => props.theme.background};
   width: 90%;
   height: 90%;
   margin: auto;
   border-radius: 15px;
   border-style: solid;
-  border-color: white;
+  border-color: ${props => props.theme.color};
   border-width: 5px;
   display: flex;
   align-items: center;
