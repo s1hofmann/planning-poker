@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CardGrid } from "./CardGrid";
 import { CardView } from "./CardView";
 import { SettingsModal } from "./SettingsModal";
-import { BlackAndWhite } from "./Themes";
+import themes, { Calm } from "./Themes";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { saveThemeData, loadThemeData } from "./Persistence";
 
@@ -15,8 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: ${props => props.theme.color};
-  background: ${props => props.theme.background};
+  color: ${props => props.theme.body.color};
+  background: ${props => props.theme.body.background};
 }
 
 *,
@@ -33,15 +33,22 @@ class App extends Component {
     this.state = {
       currentSelection: null,
       showModal: false,
-      currentTheme: BlackAndWhite
+      currentTheme: Calm
     };
   }
 
   componentDidMount() {
-    loadThemeData().then(theme => {
+    loadThemeData().then(themeData => {
+      const theme =
+        themeData &&
+        themeData.version &&
+        themeData.name &&
+        themes.filter(
+          t => t.name === themeData.name && t.version === themeData.version
+        );
       this.setState({
         ...this.state,
-        currentTheme: theme || BlackAndWhite
+        currentTheme: (theme && theme.shift()) || Calm
       });
     });
   }
@@ -80,7 +87,7 @@ class App extends Component {
       ...this.state,
       currentTheme: theme
     });
-    saveThemeData(theme);
+    saveThemeData({ name: theme.name, version: theme.version });
   };
 
   render() {
