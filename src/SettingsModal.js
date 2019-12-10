@@ -13,10 +13,10 @@ const ModalDiv = styled.div`
   height: 96%;
   border-radius: 15px;
   border-style: solid;
-  border-color: ${props => props.theme.color};
-  border-width: 3px;
-  color: ${props => props.theme.color};
-  background-color: ${props => props.theme.background};
+  border-color: ${props => props.theme.settings.color};
+  border-width: 2px;
+  color: ${props => props.theme.settings.color};
+  background-color: ${props => props.theme.settings.background};
   overflow: auto;
 `;
 
@@ -37,10 +37,11 @@ const PreviewDiv = styled.div`
   font-size: 1em;
   border-radius: 15px;
   border-style: solid;
-  border-color: ${props => props.theme.color};
+  border-color: ${props => props.theme.settings.color};
   border-width: 3px;
-  color: ${props => props.theme.color};
-  background: ${props => props.theme.background};
+  color: ${props => props.theme.settings.color};
+  background: ${props => props.theme.settings.background};
+  cursor: pointer;
 `;
 
 const CloseButton = styled.div`
@@ -55,15 +56,16 @@ const CloseButton = styled.div`
   font-size: 1em
   border-radius: 5px;
   border-style: solid;
-  border-color: ${props => props.theme.color};
+  border-color: ${props => props.theme.settings.color};
   border-width: 2px;
+  cursor: pointer;
 `;
 
 const renderThemePreview = updateThemeFunc => {
   return themes.map((theme, index) => {
     return (
       <PreviewDiv key={index} theme={theme} onClick={() => updateThemeFunc(theme)}>
-        Theme preview
+        {theme.name}
       </PreviewDiv>
     );
   });
