@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classNames from "classnames";
 import styled from "styled-components";
 import { ShakeingCard } from "./ShakeingCard";
 import { TopBar } from "./TopBar";
@@ -37,16 +36,18 @@ export class CardView extends Component {
     return (
       <CardViewDiv>
         <TopBar id="top-menu">
-          <BackButton id="backButton" onClick={this.props.onClose}>{"<"}</BackButton>
+          <BackButton id="backButton" onClick={this.props.onClose}>
+            {"<"}
+          </BackButton>
           <div></div>
           <SettingsButton onClick={this.props.onSettingsButton} />
         </TopBar>
         <CardContainer id="cardContainer">
           <ShakeingCard
             id="shakingCard"
-            className={classNames("reveal")}
             isFlippable={true}
             back={this.props.children}
+            style={{ "fontSize": "6em" }}
           />
         </CardContainer>
       </CardViewDiv>
