@@ -17,7 +17,7 @@ const MenuWrapper = styled.div`
 
 const Menu = styled.div`
 	position: relative;
-    background: ${props => props.open ? `rgba(0, 0, 0, 0)` : props.theme.color}
+    background: ${props => props.open ? `rgba(0, 0, 0, 0)` : props.theme.topbar.color}
     width: ${BAR_WIDTH}px;
 	height: ${BAR_HEIGHT}px;
 
@@ -28,7 +28,7 @@ const Menu = styled.div`
         bottom: ${props => props.open ? `0px` : `${BAR_SPACING}px`};
         width: ${BAR_WIDTH}px;
         height: ${BAR_HEIGHT}px;
-        background: ${props => props.theme.color}
+        background: ${props => props.theme.topbar.color}
         transform: ${props => props.open ? `rotate(-45deg)` : `rotate(0deg)`};
         transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
     }
@@ -39,7 +39,7 @@ const Menu = styled.div`
         top: ${props => props.open ? `0px` : `${BAR_SPACING}px`};
         width: ${BAR_WIDTH}px;
         height: ${BAR_HEIGHT}px;
-        background: ${props => props.theme.color}
+        background: ${props => props.theme.topbar.color}
         transform: ${props => props.open ? `rotate(45deg)` : `rotate(0deg)`};
         transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
     }
