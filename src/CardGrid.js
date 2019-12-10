@@ -38,6 +38,7 @@ export class CardGrid extends Component {
         key={val}
         front={val}
         onSelect={this.onSelect}
+        style={{"fontSize": "2em"}}
       />
     ));
   };

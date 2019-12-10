@@ -4,15 +4,13 @@ import styled from "styled-components";
 const CardBody = styled.div`
   position: relative;
   text-align: center;
-  color: ${props => props.theme.color};
-  background: ${props => props.theme.background};
+  color: ${props => props.theme.card.color};
+  background: ${props => props.theme.card.background};
   width: 90%;
   height: 90%;
   margin: auto;
-  border-radius: 15px;
-  border-style: solid;
-  border-color: ${props => props.theme.color};
-  border-width: 3px;
+  border-radius: 5px;
+  box-shadow: ${props => props.theme.card.boxshadow};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +18,7 @@ const CardBody = styled.div`
   perspective: 500px;
   transform: ${props => (props.flipped ? `rotateY(180deg)` : `rotateY(0deg)`)};
   transition: 0.6s;
+  cursor: pointer;
 `;
 
 const ContentDiv = styled.div`
@@ -37,7 +36,7 @@ const BackContent = styled(ContentDiv)`
   transform: rotateY(180deg);
 `;
 const CardText = styled.h1`
-  text-shadow: 1px 1px lightgray;
+  text-shadow: ${props => props.theme.card.textshadow};
   font-size: 2em;
 `;
 
@@ -72,10 +71,10 @@ export class Card extends Component {
         onClick={this.props.onSelect || this.flip}
       >
         <Front>
-          <CardText>{this.props.front || "Flip it!"}</CardText>
+          <CardText style={this.props.style}>{this.props.front || "Flip it!"}</CardText>
         </Front>
         <Back>
-          <CardText>{this.props.back}</CardText>
+          <CardText style={this.props.style}>{this.props.back}</CardText>
         </Back>
       </CardBody>
     );
